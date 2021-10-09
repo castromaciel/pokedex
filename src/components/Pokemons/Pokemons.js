@@ -4,29 +4,6 @@ import './pokemons.css'
 
 
 function Pokemons() {
-
-  const urlBase = 'https://pokeapi.co/api/v2/pokemon?limit=9'
-  const urlEachPokemon = 'https://pokeapi.co/api/v2/pokemon'
-
-  const [allPokemons, setAllPokemons] = useState([])
-  const [loadMore, setloadMore] = useState(urlBase)
-
-  const getAllPokemons = async() =>{
-    const res = await fetch(loadMore)
-    const data = await res.json()
-
-    setloadMore(data.next)
-
-    function createPokemonObject (result) {
-      result.forEach(async pokemon => {
-        const res = await fetch(`${urlEachPokemon}/${pokemon.name}`)
-        const data = await res.json()
-      
-        setAllPokemons(currentList => [...currentList,data])
-      })
-    }
-    createPokemonObject(data.results)
-  }
   window.onscroll =  () => {
     if(document.documentElement.scrollTop > 100){
       document.querySelector('.go-top-container').classList.add('show-button')
@@ -34,10 +11,33 @@ function Pokemons() {
       document.querySelector('.go-top-container').classList.remove('show-button')
     }
   }
+  
+  const urlBase = 'https://pokeapi.co/api/v2/pokemon?limit=10'
+  const urlEachPokemon = 'https://pokeapi.co/api/v2/pokemon'
+
+  const [allPokemons, setAllPokemons] = useState([])
+  const [loadMore, setloadMore] = useState(urlBase)
+
+  const getAllPokemons = async () =>{
+    const res = await fetch(loadMore)
+    const data = await res.json()
+
+    setloadMore(data.next)
+
+    function createPokemonObject(result) {
+      result.forEach(async pokemon => {
+        const res =  await fetch(`${urlEachPokemon}/${pokemon.name}`)
+        const data =  await res.json()
+      
+        setAllPokemons(currentList => [...currentList,data])
+      })
+    }
+    createPokemonObject(data.results)
+  }
   useEffect(() => {
     getAllPokemons()
+    // eslint-disable-next-line
   },[])
-  // console.log(allPokemons[1].stats[1].base_stat)
 
   return (
     <div className="all-container">

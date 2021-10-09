@@ -10,10 +10,10 @@ body{
   justify-content: center;
 }
 body::-webkit-scrollbar{
-  width: 7px;
-  background-color: rgba(182, 216, 242, 1);
+  width: 12px;
+  background-color: #fff;
 }
 body::-webkit-scrollbar-thumb{
-  border-radius: 2px;
-  background-color: #fff;
+  border-radius: 4px;
+  background-color: rgba(108, 183, 240, 1);
 }
