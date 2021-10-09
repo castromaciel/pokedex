@@ -1,0 +1,131 @@
+.rock {
+  background-color: rgb(148, 81, 81);
+}
+.ghost {
+  background-color: rgb(247, 247, 247);
+}
+.electric {
+  background-color: rgb(255, 255, 161);
+}
+.bug {
+  background-color: #F6D6A7;
+}
+.poison {
+  background-color: #e0a7f6;
+}
+.normal {
+  background-color: #F4F4F4;
+}
+.fairy {
+  background-color: rgba(255, 192, 203, 0.863);
+}
+.fire {
+  background-color: #FBE3DF;
+}
+.grass {
+  background-color:#E2F9E1;
+}
+.water {
+  background-color:#E0F1FD;
+}
+.ground{
+  background-color: #a7690c;
+}
+.fighting{
+ background-color: #f03c3fd2;
+}
+.psychic{
+  background-color: #ac6bd8;
+}
+.ice{
+  background-color: #78e5e4;
+}
+.dragon{
+  background-color: #ed8d43;
+}
+.dark{
+  background-color: #6a6764;
+}
+.steel{
+  background-color: #9d9c9c;
+}
+
+.card-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  min-width: 256px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.flip-card {
+  padding: 1em;
+}
+.flip-card:hover .card-container {
+  transform: rotateY(180deg);
+}
+
+.pokemon-box,
+.pokemon-box-back {
+  width: 100%;
+  height: 100%;
+  border-radius: .4em;
+  backface-visibility: hidden;
+}
+
+.pokemon-box-back {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0%;
+}
+.stats-container{
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+}
+.stat-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  text-align: left;
+  align-items: center;
+}
+
+h3 {
+  margin-bottom: 0.25rem;
+}
+.pokemon-id, .pokemon-type {
+  padding: 0.4rem 0 1em;
+}
+.pokemon-box img {
+  width: 120px;
+  height: 120px;
+}
+.text-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.text-capitalize{
+  text-transform: capitalize;
+}
+.text-content button {
+  color: rgb(22, 22, 22);
+  padding: .5rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.185);
+}
+.stat-container h5{
+  font-size: .9em;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
